@@ -1,6 +1,5 @@
 \documentclass[fleqn,10pt]{olplainarticle}
 % Use option lineno for line numbers 
-
 \title{What is the cause and effect in ship data analysis, when all I see is correlations?}
 
 \author[1,2]{Martin Alexandersson}
@@ -10,15 +9,29 @@
 
 \keywords{Ship dynamics, Causal inference, Machine Learning}
 
-\begin{abstract}
-\input{abstract}
-\end{abstract}
+%\begin{abstract}
+%\end{abstract}
 
 \begin{document}
 
 \flushbottom
 \maketitle
 \thispagestyle{empty}
+
+\section{Abstract}
+\input{abstract}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=\linewidth]{figures/correlation.pdf}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
+
+A real example fcomes from the analysis of real operational data from a double ended ferry. Correlation between the thruster allocation, the utilization ratio between forward and aft thruster, was observed. Was this a direct causation or just a common causation, through a hidden variable like for instance the ocean current? 
+
+In order to determine the causation an blinded experiment was carried out.
 
 
 \bibliography{sample}
