@@ -4,8 +4,6 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{hyperref}
-\def\equationautorefname~#1\null{Eq.#1\null}
-
 \hypersetup{
     colorlinks=false,
     pdfborder={0 0 0},
@@ -15,7 +13,7 @@
 \title{What is the cause and effect in ship data analysis, when all I can see is correlation?}
 
 \author[1,2]{Martin Alexandersson}
-\affil[1]{SSPA Sweden AB, Chalmers tvärgata 10, 41296 Gothenburg Sweden}
+\affil[1]{Research Institutes of Sweden (RISE), Chalmers tvärgata 10, 41296 Gothenburg Sweden}
 \affil[2]{Dept. of Mechanics and Maritime Sciences, Division of Marine Technology,
                                 Chalmers University of Technology, Hörsalsvägen 7A, Gothenburg Sweden}
 
@@ -26,6 +24,9 @@
 \end{abstract}
 
 \begin{document}
+\def\equationautorefname~#1\null{Eq.#1\null}
+\def\figureautorefname~#1\null{Fig.#1\null}
+\def\tableautorefname~#1\null{Tab.#1\null}
 
 \flushbottom
 \maketitle
@@ -80,19 +81,45 @@ if ice cream sales increase, the rate of drowning deaths also increases, so shou
     
 \end{figure}
 Determining the cause and effect from real world data is a difficult but important task. For instance proving that the emission of green house gases causes global warming is perhaps the most important task of our time. 
-An example for the analysis of real ship operational data comes from a double ended ferry Uraniborg. Correlation between the thruster allocation, the utilization ratio between forward and aft thruster, was observed. Was this a direct causation or just a common causation, through a hidden variable like for instance the ocean current? 
-
-In order to determine the causation an blinded experiment was carried out.
-
+An example for the analysis of real ship operational data comes from a double ended ferry Uraniborg (\autoref{fig:uraniborg}). 
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/uraniborg.png}
+    \caption{Double ended ferry Uraniborg, copyright Rederi AB Ventrafiken.}
+    \label{fig:uraniborg}
+\end{figure}
+\newpage 
+\noindent High correlation between the aft thruster ratio $r_{aft}$ (\autoref{eq:aft_thrust_ratio}) and fuel consumption 
+was observed for trips between Landskrona and the island of Ven as seen in \autoref{fig:fuel_consumption_correlation}.
+\begin{equation}
+    r_{aft} = \frac{C_{aft}}{C_{aft} + C_{fwd}}
+    \label{eq:aft_thrust_ratio}
+\end{equation}
+Where $FC_{aft}$ and $FC_{fwd}$ are the power
 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\textwidth]{figures/correlation.pdf}
     \caption{Fuel consumption per trip with double ended ferry Uraniborg for trips with varying aft thrust ratio}
-    \label{fig:my_label}
+    \label{fig:fuel_consumption_correlation}
 \end{figure}
+A direct causation: that higher usage of aft thruster reduces the fuel consumption cannot be concluded from \autoref{fig:fuel_consumption_correlation}. Both reversed causation and common causation are also possible relations, for instance:
+\begin{itemize}
+    \item Reversed causation: increased fuel consumption forces a reduced aft thruster ratio if the aft thruster is not strong enough, so that also the forward thruster is required to add up to the higher power demand.
+    
+    \item Common causation: there is a hidden variable such as bad weather which forces both thrusters to be used.
+\end{itemize}
+Methods to determine this causation is described in the next section. 
 
+\section{Method}
+A blinded experiment (\autoref{sec:blinded_experiment}) is the classic way to determine the causation. For situations where experiments cannot be conducted Monte Carlo simulations, Markov chain analysis and causal Bayesian network are other methods.
 
+\subsection{Blinded experiment}\label{sec:blinded_experiment}
+In the blinded experiment, every other trip with Uraniborg was run with two different crews. One crew was operating as normal and the other crew was instructed to only use the aft thruster as much as possible. The same correlation that was seen in \autoref{fig:fuel_consumption_correlation} was observed again during the experiment and a direct causation was concluded that a higher use of the aft thruster will reduce the fuel consumption.
+
+\subsection{Monte Carlo simulations}
+\subsection{Markov chain analysis}
+\subsection{Causal Bayesian network}
 
 \bibliography{sample}
 
