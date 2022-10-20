@@ -10,14 +10,16 @@
 }
 
 % Use option lineno for line numbers 
-\title{What is the cause and effect in ship data analysis, when all I can see is correlation?}
+\title{What is the cause and effect in ship data analysis, when all we can see is correlation?}
 
 \author[1,2]{Martin Alexandersson}
 \affil[1]{Research Institutes of Sweden (RISE), Chalmers tvärgata 10, 41296 Gothenburg Sweden}
 \affil[2]{Dept. of Mechanics and Maritime Sciences, Division of Marine Technology,
                                 Chalmers University of Technology, Hörsalsvägen 7A, Gothenburg Sweden}
 
-\keywords{Ship dynamics, Causal inference, Machine Learning}
+\keywords{Ship dynamics, Causal inference, System identification, Monte Carlo simulations, Markov chain analysis}
+
+
 
 \begin{abstract}
 \input{abstract}
@@ -33,7 +35,7 @@
 \thispagestyle{empty}
 \newpage
 \section{Introduction}
-As humans, we often think in terms of cause and effect — if we understand why something happened, we can change our behavior to improve future outcomes. The same goes for ships, if we can understand how they work, we can operate them in safer and more energy efficient ways. Model test experiments or computations is one way to gain this understanding for ship hydrodynamics. Data driven approaches on real ship operational data is another way, which can be more relevant as it concerns the real ship, and not just a model. The fact that this data is collected at sea, being an uncontrollable environment makes it often hard to determine the causation, the cause and effect relations. The correlation between variables can not tell if there is a direct causation where A causes B (\autoref{fig:direct_causation}) or the other way around in reversed causation (\autoref{fig:reversed_causation}), an example:
+As humans, we often think in terms of cause and effect — if we understand why something happened, we can change our behavior to improve future outcomes. The same goes for ships, if we understand how they work, we can operate them in safer and more energy efficient ways. Model test experiments or computations is one way to gain this understanding for ship hydrodynamics. Data driven approaches on real ship operational data is another way, which can be more relevant as it concerns the real ship, not its model. The fact that this data is collected at sea, being an uncontrollable environment makes it often hard to determine the causation, the cause and effect relations. The correlation between variables can not tell if there is a direct causation where A causes B (\autoref{fig:direct_causation}) or the other way around in reversed causation (\autoref{fig:reversed_causation}) for example:
 \begin{quote}
 do windmills generate the wind, or is it the other way around? 
 \end{quote}
@@ -95,15 +97,15 @@ was observed for trips between Landskrona and the island of Ven as seen in \auto
     r_{aft} = \frac{C_{aft}}{C_{aft} + C_{fwd}}
     \label{eq:aft_thrust_ratio}
 \end{equation}
-Where $FC_{aft}$ and $FC_{fwd}$ are the power
-
+Where $C_{aft}$ and $C_{fwd}$ are the fuel consumption origin from the aft and forward thruster.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\textwidth]{figures/correlation.pdf}
     \caption{Fuel consumption per trip with double ended ferry Uraniborg for trips with varying aft thrust ratio}
     \label{fig:fuel_consumption_correlation}
 \end{figure}
-A direct causation: that higher usage of aft thruster reduces the fuel consumption cannot be concluded from \autoref{fig:fuel_consumption_correlation}. Both reversed causation and common causation are also possible relations, for instance:
+
+\noindent A direct causation: that higher usage of aft thruster reduces the fuel consumption cannot be concluded from \autoref{fig:fuel_consumption_correlation}. Both reversed causation and common causation are also possible relations, for instance:
 \begin{itemize}
     \item Reversed causation: increased fuel consumption forces a reduced aft thruster ratio if the aft thruster is not strong enough, so that also the forward thruster is required to add up to the higher power demand.
     
@@ -112,14 +114,15 @@ A direct causation: that higher usage of aft thruster reduces the fuel consumpti
 Methods to determine this causation is described in the next section. 
 
 \section{Method}
-A blinded experiment (\autoref{sec:blinded_experiment}) is the classic way to determine the causation. For situations where experiments cannot be conducted Monte Carlo simulations, Markov chain analysis and causal Bayesian network are other methods.
+A blinded experiment (\autoref{sec:blinded_experiment}) is the classic way to determine the causation. For situations where experiments cannot be conducted system identification with well established
+mathematical models, Monte Carlo simulations and Markov chain analysis are other methods.
 
 \subsection{Blinded experiment}\label{sec:blinded_experiment}
 In the blinded experiment, every other trip with Uraniborg was run with two different crews. One crew was operating as normal and the other crew was instructed to only use the aft thruster as much as possible. The same correlation that was seen in \autoref{fig:fuel_consumption_correlation} was observed again during the experiment and a direct causation was concluded that a higher use of the aft thruster will reduce the fuel consumption.
 
+\subsection{System identification}
 \subsection{Monte Carlo simulations}
 \subsection{Markov chain analysis}
-\subsection{Causal Bayesian network}
 
 \bibliography{sample}
 
