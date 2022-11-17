@@ -8,6 +8,9 @@
     colorlinks=false,
     pdfborder={0 0 0},
 }
+\def\equationautorefname~#1\null{Eq.~(#1)\null}
+\def\figureautorefname~#1\null{Figure~#1\null}
+\def\tableautorefname~#1\null{Table~#1\null}
 
 % Use option lineno for line numbers 
 \title{What is the cause and effect in ship data analysis, when all we can see is correlation?}
@@ -26,9 +29,6 @@
 \end{abstract}
 
 \begin{document}
-\def\equationautorefname~#1\null{Eq.#1\null}
-\def\figureautorefname~#1\null{Fig.#1\null}
-\def\tableautorefname~#1\null{Tab.#1\null}
 
 \flushbottom
 \maketitle
@@ -88,31 +88,22 @@ if ice cream sales increase, the rate of drowning deaths also increases, so shou
     \label{fig:causal_relationships}
     
 \end{figure}
-Determining the causality from real world data is a difficult but important task. For instance proving that the emission of green house gases causes global warming is perhaps the most important task of our time. 
-An example for the analysis of real ship operational data comes from a double ended ferry Uraniborg (\autoref{fig:uraniborg}). 
+Determining the causality from real world data is a difficult but important task. For instance proving that the emission of green house gases causes global warming is perhaps the most important task of our time. A more modest problem is addressed in this paper where the thruster balance of a double ended ferry Uraniborg (\autoref{fig:uraniborg}) should be optimized to reduce the ship's fuel consumption. 
 \begin{figure}[!htb]
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/uraniborg.png}
+    \includegraphics[width=0.7\textwidth]{figures/GA_uraniborg.pdf}
     \caption{Double ended ferry Uraniborg, copyright Rederi AB Ventrafiken.}
     \label{fig:uraniborg}
 \end{figure}
 
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/uraniborg.png}
-    \caption{Double ended ferry Uraniborg, copyright Rederi AB Ventrafiken.}
-    \label{fig:uraniborg}
-\end{figure}
-
-
-
-High correlation between the aft thruster ratio $r_{aft}$ (\autoref{eq:aft_thrust_ratio}) and fuel consumption 
-was observed for trips between Landskrona and the island of Ven as seen in \autoref{fig:fuel_consumption_correlation}.
+The propulsion arrangement of Uraniborg consists of one aft and one forward azimuth thruster as seen in \autoref{fig:uraniborg}. The two thrusters can run simultaneously together adding up to the total thrust force that drives the ship. The load balance between the thrusters can vary from either utilizing only the forward or aft thruster, to a 50-50\% split between the thrusters. With the aim to optimize this load balance, operational data collected onboard Uraniborg was analyzed. 
+The load balance was measured as a coefficient $r_{aft}$ representing the utilization of the aft thruster as defined in \autoref{eq:aft_thrust_ratio},
 \begin{equation}
     r_{aft} = \frac{C_{aft}}{C_{aft} + C_{fwd}}
     \label{eq:aft_thrust_ratio}
 \end{equation}
-Where $C_{aft}$ and $C_{fwd}$ are the fuel consumption origin from the aft and forward thruster.
+where $C_{aft}$ and $C_{fwd}$ are the fuel consumption origin from the aft and forward thruster.
+High correlation between $r_{aft}$ and total fuel consumption was observed for trips with Uraniborg between Landskrona and the island of Ven as seen in \autoref{fig:fuel_consumption_correlation}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\textwidth]{figures/correlation.pdf}
