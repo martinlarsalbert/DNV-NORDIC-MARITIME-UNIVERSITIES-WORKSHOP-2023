@@ -35,11 +35,17 @@
 \thispagestyle{empty}
 \newpage
 \section{Introduction}
-As humans, we often think in terms of cause and effect — if we understand why something happened, we can change our behavior to improve future outcomes. The same goes for ships, if we understand how they work, we can operate them in safer and more energy efficient ways. Model test experiments or computations is one way to gain this understanding for ship hydrodynamics. Data driven approaches on real ship operational data is another way, which can be more relevant as it concerns the real ship, not its model. The fact that this data is collected at sea, being an uncontrollable environment makes it often hard to determine the causation, the cause and effect relations. The correlation between variables can not tell if there is a direct causation where A causes B (\autoref{fig:direct_causation}) or the other way around in reversed causation (\autoref{fig:reversed_causation}) for example:
+As humans, we often think in terms of cause and effect (causality) — if we understand why something happened, we can change our behavior to improve future outcomes. The same goes for ships, if we understand how they work, we can operate them in safer and more energy efficient ways. 
+Causal inference is a process of determining the causality. Conducting experiments is one way to do the inference where the effect of one variable can be studied in isolation. Such experiments can be conducted for ships using scale models tested in a controlled laboratory environment.
+The use of scale models may introduce problems with scale effects. The laboratory environment as well as the test scenario being artificial idealizations of their real counterparts are another problems. 
+
+Data driven analysis on real ship operational data does not have these problems and is therefore a more relevant way to analyze the ship's operation. The higher relevance of this analysis unfortunately comes with the cost that causal inference is much harder.  
+The data analysis can show how variables vary together (correlation), but that does not imply direct causality where A causes B (\autoref{fig:direct_causation}) or reversed causality where B causes A (\autoref{fig:reversed_causation}) for example:
 \begin{quote}
 do windmills generate the wind, or is it the other way around? 
 \end{quote}
-Both A and B can also be caused by a third hidden variable C (\autoref{fig:common_causation}) in common causation, for instance:
+
+\noindent Both A and B can also be caused by a third hidden variable C in common causality (\autoref{fig:common_causation}), for instance:
 \begin{quote}
 if ice cream sales increase, the rate of drowning deaths also increases, so should you avoid ice cream when swimming? 
 \end{quote}
@@ -51,7 +57,7 @@ if ice cream sales increase, the rate of drowning deaths also increases, so shou
         \node[circle,draw,right of=A] (B) {\bf B};
         \draw[->] (A) -- (B);
         \end{tikzpicture}
-        \caption{Direct causation}
+        \caption{Direct causality}
         \label{fig:direct_causation}
     \end{subfigure}
     \hfill
@@ -62,7 +68,7 @@ if ice cream sales increase, the rate of drowning deaths also increases, so shou
         \node[circle,draw,right of=A] (B) {\bf B};
         \draw[<-] (A) -- (B);
         \end{tikzpicture}
-        \caption{Reversed causation}
+        \caption{Reversed causality}
         \label{fig:reversed_causation}
     \end{subfigure}
     \hfill
@@ -75,14 +81,14 @@ if ice cream sales increase, the rate of drowning deaths also increases, so shou
         \draw[->] (C) -- (A);
         \draw[->] (C) -- (B);
         \end{tikzpicture}
-        \caption{Common causation}
+        \caption{Common causality}
         \label{fig:common_causation}
     \end{subfigure}
-    \caption{Causal relationships.}
+    \caption{Causality}
     \label{fig:causal_relationships}
     
 \end{figure}
-Determining the cause and effect from real world data is a difficult but important task. For instance proving that the emission of green house gases causes global warming is perhaps the most important task of our time. 
+Determining the causality from real world data is a difficult but important task. For instance proving that the emission of green house gases causes global warming is perhaps the most important task of our time. 
 An example for the analysis of real ship operational data comes from a double ended ferry Uraniborg (\autoref{fig:uraniborg}). 
 \begin{figure}[!htb]
     \centering
@@ -90,8 +96,17 @@ An example for the analysis of real ship operational data comes from a double en
     \caption{Double ended ferry Uraniborg, copyright Rederi AB Ventrafiken.}
     \label{fig:uraniborg}
 \end{figure}
-\newpage 
-\noindent High correlation between the aft thruster ratio $r_{aft}$ (\autoref{eq:aft_thrust_ratio}) and fuel consumption 
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/uraniborg.png}
+    \caption{Double ended ferry Uraniborg, copyright Rederi AB Ventrafiken.}
+    \label{fig:uraniborg}
+\end{figure}
+
+
+
+High correlation between the aft thruster ratio $r_{aft}$ (\autoref{eq:aft_thrust_ratio}) and fuel consumption 
 was observed for trips between Landskrona and the island of Ven as seen in \autoref{fig:fuel_consumption_correlation}.
 \begin{equation}
     r_{aft} = \frac{C_{aft}}{C_{aft} + C_{fwd}}
@@ -101,7 +116,7 @@ Where $C_{aft}$ and $C_{fwd}$ are the fuel consumption origin from the aft and f
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\textwidth]{figures/correlation.pdf}
-    \caption{Fuel consumption per trip with double ended ferry Uraniborg for trips with varying aft thrust ratio}
+    \caption{Fuel consumption per trip with double ended ferry Uraniborg for trips with varying aft thrust ratio.}
     \label{fig:fuel_consumption_correlation}
 \end{figure}
 
