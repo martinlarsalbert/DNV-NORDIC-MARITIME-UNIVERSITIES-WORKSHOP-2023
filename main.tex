@@ -8,9 +8,6 @@
     colorlinks=false,
     pdfborder={0 0 0},
 }
-\def\equationautorefname~#1\null{Eq.~(#1)\null}
-\def\figureautorefname~#1\null{Figure~#1\null}
-\def\tableautorefname~#1\null{Table~#1\null}
 
 % Use option lineno for line numbers 
 \title{What is the cause and effect in ship data analysis, when all we can see is correlation?}
@@ -29,66 +26,32 @@
 \end{abstract}
 
 \begin{document}
+\def\equationautorefname~#1\null{Eq.~(#1)\null}
+\def\figureautorefname~#1\null{Figure~#1\null}
+\def\tableautorefname~#1\null{Table~#1\null}
 
 \flushbottom
 \maketitle
 \thispagestyle{empty}
 \newpage
 \section{Introduction}
+%________________________________________
+%Situation:
 As humans, we often think in terms of cause and effect (causality) — if we understand why something happened, we can change our behavior to improve future outcomes. The same goes for ships, if we understand how they work, we can operate them in safer and more energy efficient ways. 
-Causal inference is a process of determining the causality. Conducting experiments is one way to do the inference where the effect of one variable can be studied in isolation. Such experiments can be conducted for ships using scale models tested in a controlled laboratory environment.
-The use of scale models may introduce problems with scale effects. The laboratory environment as well as the test scenario being artificial idealizations of their real counterparts are another problems. 
+Causal inference is a process of determining the causality. Conducting experiments is a way to infer causality where the effect of one variable can be studied in isolation. Such experiments can be conducted for ships using scale models tested in a controlled laboratory environment.
+The use of scale models may introduce problems with scale effects. The laboratory environment as well as the test scenario being artificial idealizations of their real counterparts is also problematic. 
 
-Data driven analysis on real ship operational data does not have these problems and is therefore a more relevant way to analyze the ship's operation. The higher relevance of this analysis unfortunately comes with the cost that causal inference is much harder.  
-The data analysis can show how variables vary together (correlation), but that does not imply direct causality where A causes B (\autoref{fig:direct_causation}) or reversed causality where B causes A (\autoref{fig:reversed_causation}) for example:
+Data driven analysis on real ship operational avoids these problems and is a more relevant way to analyze the ship's operation. Causal inference is however much harder when using operational data, since that data was not collected from a controlled experiment. The data analysis can show how variables vary together (correlation). The correlation does not imply direct causality where \emph{A} causes \emph{B} (\autoref{fig:direct_causation}). \emph{A} and \emph{B} could also have the opposite relation in reversed causality (\autoref{fig:reversed_causation}) for example:
 \begin{quote}
-do windmills generate the wind, or is it the other way around? 
+\emph{Do windmills generate the wind, or is it the other way around?}
 \end{quote}
-
-\noindent Both A and B can also be caused by a third hidden variable C in common causality (\autoref{fig:common_causation}), for instance:
+\emph{A} and \emph{B} can also be caused by a third hidden variable \emph{C} (common causality) (\autoref{fig:common_causation}), for instance:
 \begin{quote}
-if ice cream sales increase, the rate of drowning deaths also increases, so should you avoid ice cream when swimming? 
+\emph{If ice cream sales increase, the rate of drowning deaths also increases, so should you avoid ice cream when swimming?}
 \end{quote}
-\begin{figure}[!htb]
-    \begin{subfigure}[b]{0.3\textwidth}
-        \centering
-        \begin{tikzpicture}[node distance=2cm]
-        \node[circle,draw] at (0,0) (A) {\bf A};
-        \node[circle,draw,right of=A] (B) {\bf B};
-        \draw[->] (A) -- (B);
-        \end{tikzpicture}
-        \caption{Direct causality}
-        \label{fig:direct_causation}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.3\textwidth}
-        \centering
-        \begin{tikzpicture}[node distance=2cm]
-        \node[circle,draw] at (0,0) (A) {\bf A};
-        \node[circle,draw,right of=A] (B) {\bf B};
-        \draw[<-] (A) -- (B);
-        \end{tikzpicture}
-        \caption{Reversed causality}
-        \label{fig:reversed_causation}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.3\textwidth}
-        \centering
-        \begin{tikzpicture}[node distance=2cm]
-        \node[circle,draw] at (0,0) (C) {\bf C};
-        \node[circle,draw,right of=C,yshift=1cm] (A) {\bf A};
-        \node[circle,draw,right of=C,yshift=-1cm] (B) {\bf B};
-        \draw[->] (C) -- (A);
-        \draw[->] (C) -- (B);
-        \end{tikzpicture}
-        \caption{Common causality}
-        \label{fig:common_causation}
-    \end{subfigure}
-    \caption{Causality}
-    \label{fig:causal_relationships}
-    
-\end{figure}
-Determining the causality from real world data is a difficult but important task. For instance proving that the emission of green house gases causes global warming is perhaps the most important task of our time. A more modest problem is addressed in this paper where the thruster balance of a double ended ferry Uraniborg (\autoref{fig:uraniborg}) should be optimized to reduce the ship's fuel consumption. 
+\input{figures/causality}
+%\subsection{Case study}
+Determining the causality from real world data is a difficult but important task. For instance proving that the emission of green house gases causes global warming is perhaps the most important task of our time? A more modest task is addressed in this paper; The thruster balance of a double ended ferry Uraniborg (\autoref{fig:uraniborg}) is to be optimized for fuel consumption reduction. 
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=0.7\textwidth]{figures/GA_uraniborg.pdf}
@@ -96,28 +59,35 @@ Determining the causality from real world data is a difficult but important task
     \label{fig:uraniborg}
 \end{figure}
 
-The propulsion arrangement of Uraniborg consists of one aft and one forward azimuth thruster as seen in \autoref{fig:uraniborg}. The two thrusters can run simultaneously together adding up to the total thrust force that drives the ship. The load balance between the thrusters can vary from either utilizing only the forward or aft thruster, to a 50-50\% split between the thrusters. With the aim to optimize this load balance, operational data collected onboard Uraniborg was analyzed. 
-The load balance was measured as a coefficient $r_{aft}$ representing the utilization of the aft thruster as defined in \autoref{eq:aft_thrust_ratio},
+The propulsion arrangement of Uraniborg consists of two azimuth thrusters, one in the aft and one in the forward part of the ship (\autoref{fig:uraniborg}). The two thrusters can run simultaneously adding up to the total thrust force that drives the ship forward. The load balance between the thrusters can vary from full forward or aft thruster utilization, to a 50-50\% split between the thrusters. With the aim of load balance optimization, operational data collected onboard Uraniborg has previously been analyzed. The load balance was measured as a coefficient ($r_{aft}$) representing the utilization of the aft thruster as defined in \autoref{eq:aft_thrust_ratio},
 \begin{equation}
     r_{aft} = \frac{C_{aft}}{C_{aft} + C_{fwd}}
     \label{eq:aft_thrust_ratio}
 \end{equation}
-where $C_{aft}$ and $C_{fwd}$ are the fuel consumption origin from the aft and forward thruster.
-High correlation between $r_{aft}$ and total fuel consumption was observed for trips with Uraniborg between Landskrona and the island of Ven as seen in \autoref{fig:fuel_consumption_correlation}.
+where $C_{aft}$ and $C_{fwd}$ are the fuel consumption from the aft and forward thruster.
+High correlation between $r_{aft}$ and total fuel consumption was observed for trips during one year with Uraniborg between Landskrona and the island of Ven as seen in \autoref{fig:fuel_consumption_correlation}.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\textwidth]{figures/correlation.pdf}
-    \caption{Fuel consumption per trip with double ended ferry Uraniborg for trips with varying aft thrust ratio.}
+    \caption{Fuel consumption per trip with Uraniborg for trips during one year with varying aft thrust ratio.}
     \label{fig:fuel_consumption_correlation}
 \end{figure}
 
-\noindent A direct causation: that higher usage of aft thruster reduces the fuel consumption cannot be concluded from \autoref{fig:fuel_consumption_correlation}. Both reversed causation and common causation are also possible relations, for instance:
+%________________________________________
+%Problem:
+The correlation implies that there is a relationship between $r_{aft}$ and the fuel consumption; However, it is not possible to conclude which kind of causality (\autoref{fig:causal_relationships}). A direct causality that higher aft thruster utilization ($r_{aft}$) reduces the fuel consumption, would be very useful to optimize the fuel consumption. However, both reversed causality or common causality are also possibilities, considering other hypothetical scenarios:
 \begin{itemize}
-    \item Reversed causation: increased fuel consumption forces a reduced aft thruster ratio if the aft thruster is not strong enough, so that also the forward thruster is required to add up to the higher power demand.
+    \item Increased fuel consumption forces a reduced aft thruster utilization if the aft thruster is not strong enough. The forward thruster is then needed to add up to the higher power demand. (Reversed causality)
     
-    \item Common causation: there is a hidden variable such as bad weather which forces both thrusters to be used.
+    \item There is a hidden variable such as bad weather which forces both thrusters to be used. (Common causality)
 \end{itemize}
-Methods to determine this causation is described in the next section. 
+%________________________________________
+%Solution:
+The causal inference for the aft thruster utilization is presented in this paper by conducting a blinded experiment onboard Uraniborg. Alternative ways for causal inference are also presented; The alternatives are intended to be used when experiments are not possible, or very inconvenient to conduct.
+
+%________________________________________
+%Evaluation:
+The result from the experiment is analyzed to infer the direct causality between the aft thruster utilization and the fuel consumption. It is also investigated if alternative causal inferences can arrive to the same conclusion.  
 
 \section{Method}
 A blinded experiment (\autoref{sec:blinded_experiment}) is the classic way to determine the causation. For situations where experiments cannot be conducted system identification with well established

@@ -1,0 +1,39 @@
+\begin{figure}[!htb]
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[node distance=2cm]
+        \node[circle,draw] at (0,0) (A) {\bf A};
+        \node[circle,draw,right of=A] (B) {\bf B};
+        \draw[->] (A) -- (B);
+        \end{tikzpicture}
+        \caption{Direct causality}
+        \label{fig:direct_causation}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[node distance=2cm]
+        \node[circle,draw] at (0,0) (A) {\bf A};
+        \node[circle,draw,right of=A] (B) {\bf B};
+        \draw[<-] (A) -- (B);
+        \end{tikzpicture}
+        \caption{Reversed causality}
+        \label{fig:reversed_causation}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \begin{tikzpicture}[node distance=2cm]
+        \node[circle,draw] at (0,0) (C) {\bf C};
+        \node[circle,draw,right of=C,yshift=1cm] (A) {\bf A};
+        \node[circle,draw,right of=C,yshift=-1cm] (B) {\bf B};
+        \draw[->] (C) -- (A);
+        \draw[->] (C) -- (B);
+        \end{tikzpicture}
+        \caption{Common causality}
+        \label{fig:common_causation}
+    \end{subfigure}
+    \caption{Causality}
+    \label{fig:causal_relationships}
+    
+\end{figure}
