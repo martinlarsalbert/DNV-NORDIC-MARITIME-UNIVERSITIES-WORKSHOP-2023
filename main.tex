@@ -92,7 +92,14 @@ In the blinded experiment, every other trip with Uraniborg was run with two diff
 \section{Results}
 
 \pgfplotstabletypeset[col sep=comma,
-     columns={Operator,Period},
+    columns={Operator,Period, sog, TU,Consumption,Trips},
+    columns/Operator/.style={string type},
+    columns/Period/.style={string type},
+    column type=l,	% specify the align method
+	every head row/.style={before row=\hline,after row=\hline},	% style the first row
+	every last row/.style={after row=\hline},	% style the last row
+	%every first column/.style={column type/.add={|}{}},	% style the first column
+	%every last column/.style={column type/.add={}{|}},	% style the last column
     ]{tables/tab_means_corrected.csv}
 
 
