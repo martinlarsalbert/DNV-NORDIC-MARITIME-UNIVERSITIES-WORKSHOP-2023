@@ -25,7 +25,7 @@
 \begin{abstract}
 \input{abstract}
 \end{abstract}
-
+\input{variables}
 \begin{document}
 \def\equationautorefname~#1\null{Eq.~(#1)\null}
 \def\figureautorefname~#1\null{Figure~#1\null}
@@ -91,7 +91,16 @@ In the blinded experiment, every other trip with Uraniborg was run with two diff
 
 \section{Results}
 
-\pgfplotstabletypeset[col sep=comma,
+
+The fuel consumption of Uraniborg with the speed correction applied, is shown in \autoref{tab:means_corrected} for the four datasets: ship operation by the captain and mate during experiment and the reference period. The captain had much lower fuel consumption compared to the mate for both periods. Even though the captain used a little bit higher aft thruster utilization already before the experiment (0.8 compared to 0.7), there can also be other explanations to the captains's lower consumption such as: higher skills and experience in operating the ship. 
+The difference was however much larger during the experiment (\savingpctexperiment \%), compared to the reference period ({glue:}`saving_pct_before_experiment` %). The captain used a lower aft thruster utilization (TU=0.8) before the experiment compared to during the experiment, where aft thruster was used exclusively (TU=1). This means that at least {glue:}`saving_thruster_allocation_pct` % of the total {glue:}`saving_pct_experiment` % reduction can be accounted to the increased aft thruster utilization. 
+The remaining difference between the fuel consumption of the captain and mate during the experiment ({glue:}`saving_pct_before_experiment` %) needs futher investigations. It would be a good idea to get a closer look at how the captain and mate operate the ship, to find an explanation how to operate the ship in the more energy efficient way of the captain.
+
+\begin{table}[h]
+    \centering
+    \caption{Mean values corrected for differences in speed in the original data for the four datasets where the ship is operated by the captain or mate during the reference period or experiment.}
+    \label{tab:means_corrected}
+    \pgfplotstabletypeset[col sep=comma,
     columns={Operator,Period, sog, TU,Consumption,Trips},
     columns/Operator/.style={string type},
     columns/Period/.style={string type},
@@ -101,7 +110,7 @@ In the blinded experiment, every other trip with Uraniborg was run with two diff
 	%every first column/.style={column type/.add={|}{}},	% style the first column
 	%every last column/.style={column type/.add={}{|}},	% style the last column
     ]{tables/tab_means_corrected.csv}
-
+\end{table}
 
 \bibliography{sample}
 
