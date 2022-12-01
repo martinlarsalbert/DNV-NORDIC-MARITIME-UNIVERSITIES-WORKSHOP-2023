@@ -8,6 +8,7 @@
     colorlinks=false,
     pdfborder={0 0 0},
 }
+\usepackage{pgfplotstable,filecontents}
 
 % Use option lineno for line numbers 
 \title{What is the cause and effect in ship data analysis, when all we can see is correlation?}
@@ -87,6 +88,13 @@ In the blinded experiment, every other trip with Uraniborg was run with two diff
 \subsection{System identification}
 \subsection{Monte Carlo simulations}
 \subsection{Markov chain analysis}
+
+\section{Results}
+
+\pgfplotstabletypeset[col sep=comma,
+     columns={Operator,Period},
+    ]{tables/tab_means_corrected.csv}
+
 
 \bibliography{sample}
 
