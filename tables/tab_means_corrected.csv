@@ -1,5 +1,5 @@
-,Operator,Period,sog,TU,Consumption,Trips
-0,Mate,reference,4.8,0.7187476474620558,57.0,20
-1,Capt.,reference,4.8,0.7708400209970839,53.0,22
-2,Mate,experiment,4.8,0.6870424492237277,52.0,21
-3,Capt.,experiment,4.8,0.9912087389142661,44.0,19
+Operator,Period,sog,TU,Consumption,Trips
+Mate,reference,4.8,0.7187476474620558,57.0,20
+Capt.,reference,4.8,0.7708400209970839,53.0,22
+Mate,experiment,4.8,0.6870424492237277,52.0,21
+Capt.,experiment,4.8,0.9912087389142661,44.0,19
