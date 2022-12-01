@@ -52,13 +52,13 @@ Determining the causality from real world data is a difficult yet important task
     \caption{Double ended ferry Uraniborg, copyright Rederi AB Ventrafiken.}
     \label{fig:uraniborg}
 \end{figure}
-The thrust allocation concerns the load balance between the the ship's two azimuth thrusters: one in the aft, and one in the bow of the ship (\autoref{fig:uraniborg}). The two thrusters can run simultaneously, adding up to the total thrust force, driving the ship forward. The load balance can vary between all combinations from: full aft, to full forward thruster utilization. This balance can be expressed with $\alpha_{aft}$ as defined in \autoref{eq:aft_thrust_ratio},  
+The thrust allocation concerns the load balance between the the ship's two azimuth thrusters: one in the aft, and one in the bow of the ship (\autoref{fig:uraniborg}). The two thrusters can run simultaneously, adding up to the total thrust force, driving the ship forward. The load balance can vary between all combinations from: full aft, to full forward thruster utilization. This balance can be expressed with $TU$ as defined in \autoref{eq:aft_thrust_ratio},  
 \begin{equation}
-    \alpha_{aft} = \frac{C_{aft}}{C_{aft} + C_{fwd}}
+    TU = \frac{C_{aft}}{C_{aft} + C_{fwd}}
     \label{eq:aft_thrust_ratio}
 \end{equation}
 where $C_{aft}$ and $C_{fwd}$ are the fuel consumption from the aft and forward thruster. 
-\autoref{fig:fuel_consumption_correlation} shows data from trips between Landskrona and Ven during one year for the variables: total fuel consumption, and $\alpha_{aft}$. There seems to be a clear correlation between these variables,  which implies that there is relationship between them. But is it a direct causal relationship? Direct causality would mean that $\alpha_{aft}$ can be used as an optimization parameter to reduce the fuel consumption.
+\autoref{fig:fuel_consumption_correlation} shows data from trips between Landskrona and Ven during one year for the variables: total fuel consumption, and $TU$. There seems to be a clear correlation between these variables,  which implies that there is relationship between them. But is it a direct causal relationship? Direct causality would mean that $TU$ can be used as an optimization parameter to reduce the fuel consumption.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\textwidth]{figures/correlation.pdf}
