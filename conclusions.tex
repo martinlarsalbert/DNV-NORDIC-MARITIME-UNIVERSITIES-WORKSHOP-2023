@@ -2,24 +2,26 @@
 %_________________________________________________________
 %Move 1: Background information (research purposes, theory,
 %methodology)
-A high correlation between the aft thruster utilization (TU) and fuel consumption (FC) has been observed for trips between Landskona and Ven with the double ended ferry Uraniborg. A direct causality, where TU causes FC, means that TU could be used as an optimization parameter to reduce the FC. The observed correlation suggests that there could be such a causality, but causal inference needs to be conducted to confirm it.
-An experiment was conducted onboard Uraniborg where the TU was varied to infer the direct causal relationship.
+A high correlation between the aft thruster utilization (TU) and fuel consumption (FC) has been observed for trips between Landskona and Ven with the double ended ferry Uraniborg.  A controlled experiment was conducted onboard Uraniborg, where the TU was varied to infer if the observed correlation implies a direct causal relationship. Such a relationship would mean that the TU could be used as an optimization parameter for FC reduction.
 
 %_________________________________________________________
 %Move 2: Summarizing and reporting key results. (oblig.)
 The experiment was conducted with two different operators of the ship: the captain and the first mate. The captain was instructed to run the ship in a new way: with as much aft thruster utilization as possible, and the first mate was instructed to run the ship in a more normal way: using both the forward and aft thruster.
-The operator was changed every other round trip, from Landskrona to Ven and back, so that the experiments with the two operators would have as similar conditions as possible, in terms of traffic, wind, waves, and currents.
-The aim was that the TU would be the only parameter varied during the experiment. There were however also differences in average speed, which has a big influence on the FC. The FC data was therefore corrected, by using a FC prediction model to estimate the speed influence on FC.
+Ideally, to get a reliable inference, the TU should to be the only parameter varied during the experiment. Therefore, the operator was changed every other round trip, from Landskrona to Ven and back, so that the experiments would have as similar conditions as possible, in terms of traffic, wind, waves, and currents.
+There were however also differences in average ship speed during the experiments, which has a big influence on the FC. The FC data was therefore corrected, by using a FC prediction model to estimate the speed influence.
 The experiment was conducted according to the plan where the captain used the aft thruster almost exclusively, obtaining an average TU of 0.99, and the mate used a more normal operation: obtaining TU=0.69.
 The captain achieved \savingpctexperiment \% lower FC compared to the mate during the experiment.
-Data was also collected from a reference period before the experiment, where the same operators where running the ship on a similar schedule as during the experiment. The captain had a much lower average TU during the reference period (0.77), compared to the experiment in contrast to the mate who had a very similar TU during both the reference period and the experiment.
-The captain achieved \savingpctbeforeexperiment \% lower FC than the mate during the reference period. 
+Data was also collected from a reference period, before the experiment, where the same operators where running the ship on a similar schedule as during the experiment. For this period, the captain had a much lower average TU (0.77) compared to the experiment, in contrast to the mate who had a very similar TU during both the reference period and the experiment. The FC was lower for the captain than the mate during the reference period as well (\savingpctbeforeexperiment \%).
 
 %_________________________________________________________
 %Move 3: Commenting on key results (making claims, explaining the results,
 %comparing the new work with previous studies, offering
 %alternative explanations) (oblig.)
-The fact that the captain achieved a lower fuel consumption already during the reference period, could be partly explained by a slightly higher TU than the mate. There are probably also other things that differ between the captain's and the mate's operation of the ship, which can explain the lower FC. The FC difference was however even larger between the captain and mate during the experiment, which means that the increased TU has reduced the FC with at least \savingthrusterallocationpct \% and that a direct causal relation between TU and FC can be inferred.
+The reduction was however much larger during the experiment, which most likely implies that there is a direct causality between TU and FC; the increased TU, used by the captain during the experiment, most likely caused a substantial reduction of the FC. A reduct FC with at least \savingthrusterallocationpct \%.
+
+
+
+The captains lower FC during the reference period, could perhaps partly be explained by a slightly higher TU than the mate and other things that differ between the captain's and the mate's operation of the ship, which can explain the lower FC. The FC difference was however much larger between the captain and mate during the experiment, which means that the increased TU has reduced the FC with at least \savingthrusterallocationpct \% and that a direct causal relation between TU and FC can be inferred.
 % previous studies: "designing a double ended ferry"
 
 %_________________________________________________________
