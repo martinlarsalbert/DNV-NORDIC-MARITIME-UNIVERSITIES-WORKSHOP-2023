@@ -52,7 +52,7 @@ Determining the causality from real world data is a difficult yet important task
     \caption{Double ended ferry Uraniborg, copyright Rederi AB Ventrafiken.}
     \label{fig:uraniborg}
 \end{figure}
-The thrust allocation concerns the load balance between the the ship's two azimuth thrusters: one in the aft, and one in the bow of the ship (\autoref{fig:uraniborg}). The two thrusters can run simultaneously, adding up to the total thrust force, driving the ship forward. The load balance can vary between all combinations from: full aft, to full forward thruster utilization. This balance can be expressed with $TU$ as defined in \autoref{eq:aft_thrust_ratio},
+The thrust allocation concerns the load balance between the the ship's two azimuth thrusters: one in the aft, and one in the bow of the ship (\autoref{fig:uraniborg}). The two thrusters can run simultaneously, adding up to the total thrust force, driving the ship forward. The load balance can vary between all combinations from: full aft, to full forward thruster utilization (TU). This balance can be expressed with as defined in \autoref{eq:aft_thrust_ratio},
 \begin{equation}
     TU = \frac{C_{aft}}{C_{aft} + C_{fwd}}
     \label{eq:aft_thrust_ratio}
@@ -79,8 +79,7 @@ However, both reversed causality or common causality are other possibilities, co
 A controlled experiment was conducted onboard Uraniborg to infer the direct causal relationship. Results from this experiment are presented and analyzed in this paper to conclude the relationship. Alternative methods applicable when experiments are not possible, are also discussed and investigated. Conducting system identification on a well established physical model is one of these methods, which is presented in this paper. Also Monte Carlo simulations, and Markov chain analysis are alternatives that are discussed, but more briefly. To complete this paper, it is investigated if the alternative methods can reach to the same conclusion as obtained from the controlled experiment inference.
 
 \section{Method}
-A controlled experiment (\autoref{sec:blinded_experiment}) is the classic way to determine the causation. For situations where experiments cannot be conducted system identification with well established
-mathematical models, Monte Carlo simulations and Markov chain analysis are other methods.
+A controlled experiment (\autoref{sec:blinded_experiment}) is the classic way to determine the causation. System identification with well established mathematical models, Monte Carlo simulations, and Markov chain analysis are alternatives that can be used for situations where experiments cannot be conducted
 
 \subsection{Controlled experiment}\label{sec:blinded_experiment}
 In the controlled experiment, every other trip with Uraniborg was run with two different crews. One crew was operating as normal and the other crew was instructed to only use the aft thruster as much as possible. The same correlation that was seen in \autoref{fig:fuel_consumption_correlation} was observed again during the experiment and a direct causation was concluded that a higher use of the aft thruster will reduce the fuel consumption.
