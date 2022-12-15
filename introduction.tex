@@ -6,7 +6,7 @@
 
 As humans, we often think in terms of cause and effect -- causality; if we understand why something happened, we can change our behavior to improve future outcomes. 
 Causal inference is a process of determining the causality. The inference can be conducted in a controlled experiments, where the effect of one variable can be studied in isolation.
-Some problems are however unsuitable for controlled experiments, where causal inference thus becomes more difficult. Determining the causality from real world data is such a problem, which can be difficult yet very important; for instance: to convincingly show that the emission of green house gases causes global warming, is perhaps the most important problem of our time? 
+Some problems are however unsuitable for controlled experiments, where causal inference thus becomes more difficult. Determining the causality from real world data is such a problem, which can be difficult yet very important; for instance: to convincingly show that the emission of green house gases causes global warming, is perhaps the most important problem of our time. 
 
 Data analysis can be used to show how variables vary together (correlation); however, correlation does not imply direct causality where: \emph{A} causes \emph{B} (\autoref{fig:direct_causation}). It could also be the opposite relation -- reversed causality (\autoref{fig:reversed_causation}). 
 For instance: \emph{do windmills generate the wind, or is it the other way around?} There could also be a third hidden variable \emph{C}, causing both \emph{A} and \emph{B} -- common causality (\autoref{fig:common_causation}). For instance: \emph{if ice cream sales increase, the rate of drowning deaths also increases, so should you avoid ice cream when swimming?}
@@ -35,7 +35,8 @@ The thrust allocation concerns the load balance between the the ship's two azimu
     \label{eq:aft_thrust_ratio}
 \end{equation}
 where $C_{aft}$ and $C_{fwd}$ are the fuel consumption from the aft and forward thruster.
-\autoref{fig:fuel_consumption_correlation} shows data from trips between Landskrona and Ven during one year for the variables: total fuel consumption, and $TU$. There seems to be a clear correlation between these variables,  which implies that there is relationship between them. But is it a direct causal relationship? Direct causality would mean that $TU$ can be used as an optimization parameter to reduce the fuel consumption.
+\autoref{fig:fuel_consumption_correlation} shows data collected with a vessel monitoring system (https://online.blueflow.se/) from trips between Landskrona and Ven during one year for the variables: total fuel consumption, and $TU$. 
+There seems to be a clear correlation between these variables,  which implies that there is relationship between them. But is it a direct causal relationship? Direct causality would mean that $TU$ can be used as an optimization parameter to reduce the fuel consumption.
 \begin{figure}[!htb]
     \centering
     \includegraphics[width=\textwidth]{figures/correlation.pdf}
@@ -56,4 +57,4 @@ However, both reversed causality or common causality are other possibilities, co
 % * announce principal findings?            <--
 % * stating the value of present research?
 % * article structure?                      <--
-A controlled experiment was conducted onboard Uraniborg to infer the direct causal relationship. Results from this experiment are presented and analyzed in this paper to conclude the relationship. Alternative methods applicable when experiments are not possible, are also discussed and investigated. Conducting system identification on a well established physical model is one of these methods, which is presented in this paper. Also Monte Carlo simulations, and Markov chain analysis are alternatives that are discussed, but more briefly. To complete this paper, it is investigated if the alternative methods can reach to the same conclusion as obtained from the controlled experiment inference.
+A controlled experiment was conducted onboard Uraniborg to infer the direct causal relationship. Results from this experiment are presented and analyzed in this paper to determine the relationship. Further, alternative methods applicable when the experiments cannot be conducted, are also investigated and discussed. It is investigated if the alternative methods can reach to the same conclusion as obtained from the controlled experiment inference.
