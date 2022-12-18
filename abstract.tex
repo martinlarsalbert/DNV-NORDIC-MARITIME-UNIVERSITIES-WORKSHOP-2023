@@ -1,12 +1,21 @@
-%Purpose and scope
-A relation between thruster allocation and fuel consumption with high correlation have been found onboard the double ended ferry Uraniborg. 
-This correlation does however not imply causation. It can therefore not be concluded if the discovered thrust allocation fuel relations can be used to optimize the fuel consumption, until the causation, the cause and effect of this relationship has been determined.
+% Move 1 - Background/introduction/situation
+Today, there is an increased use of statistical analysis or ML on real data, with the aim to propose changes in optimizing a system's behaviour. Before such changes could be proposed, determining the cause and effect relation between the variables -- causality -- is first necessary.
+The aim of standard statistical analysis or machine learning (ML) is to find trends or associations between variables; causal inference moves one step further, when also trying to find the causality.
 
-%Methods
-Blinded experiments were carried out to determine the causation for the present case. Other ways to determine the causation was also investigated such as system identification with well established mathematical models for ship dynamcis, Monte Carlo simulations and Markov chain analysis. These methods can be used in situations when the blinded experiments can not be conducted. 
+% Move 2 - Present research/purpose
+In this paper, causal inference is investigated on a dataset collected onboard the double ended ferry Uraniborg.
+A trend with high correlation between thruster utilization (TU) and fuel consumption (FC) is investigated to see if there is a direct causality, which can then be used to optimize the FC.
 
-%Results
-The blinded experiments showed that there is a direct causal relationship between the thruster allocation and fuel consumption for the double ended ferry Uraniborg so that about 15\% fuel can be saved when running only on the aft thruster, compared to previous normal operation with both thrusters.  
+% Move 3 - Methods/materials/subjects/procedures
+The inference was conducted in a controlled experiment onboard the ship.
+% Move 4 - Results/findings
+The experiment showed that there seems to be a direct causal relationship between the TU and FC.
+An optimized TU, where only the aft thruster is utilized, is estimated to have between 9 and 17\% lower FC compared to the previous operation of the ship.
 
-%Conclusion
-Conducting a blinded experiment to confirm that observed correlations from analysis of ship operational data is a very good way to confirm the causation. A beneficial side effect was that the crew involved in the experiment could immediately see the benefits of the optimized way to operate the ship. This makes it much easier to convince the crew to change the way they operate the ship and hopefully it will also increase their motivation to maintain this change to get a permanent reduction of the ship's fuel consumption.   
+% Move 5 - Discussion/conclusion/significance
+Conducting a controlled experiment to investigate if observed correlation from analysis of ship operational data is a good way for causal inference. Involving the crew in the experiment also had the beneficial side effect that they could immediately see the effect of the proposed changes, which might increase the chances to get a permanent change in the operations of the ship and thus a permanent reduction of the ships's FC. 
+
+
+
+
+
