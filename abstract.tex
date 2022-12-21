@@ -1,19 +1,22 @@
 % Move 1 - Background/introduction/situation
-Today, there is an increased use of statistical analysis or ML on real data, with the aim to propose changes in optimizing a system's behaviour. Before such changes could be proposed, determining the cause and effect relation between the variables -- causality -- is first necessary.
-The aim of standard statistical analysis or machine learning (ML) is to find trends or associations between variables; causal inference moves one step further, when also trying to find the causality.
+Statistical analysis or machine learning (ML) on real data can be used to propose changes in optimizing a system's behaviour. Before such changes could be proposed, determining the cause and effect relation between the variables -- causality -- is first necessary.
+The aim of standard statistical analysis or ML is to find trends or associations between variables. 
+For these trends to be usable in optimization, we need to move one step further, also trying to find the causality.
 
 % Move 2 - Present research/purpose
 In this paper, causal inference is investigated on a dataset collected onboard the double ended ferry Uraniborg.
 A trend with high correlation between thruster utilization (TU) and fuel consumption (FC) is investigated to see if there is a direct causality, which can then be used to optimize the FC.
 
 % Move 3 - Methods/materials/subjects/procedures
-The inference was conducted in a controlled experiment onboard the ship.
+The inference was conducted in a controlled experiment onboard the ship, where the operation of the ship was altered between the captain and mate, every other journey.
 % Move 4 - Results/findings
-The experiment showed that there seems to be a direct causal relationship between the TU and FC.
+The experiment showed that there is most likely a direct causal relationship between the TU and FC.
 An optimized TU, where only the aft thruster is utilized, is estimated to have between 9 and 17\% lower FC compared to the previous operation of the ship.
 
 % Move 5 - Discussion/conclusion/significance
-Conducting a controlled experiment to investigate if observed correlation from analysis of ship operational data is a good way for causal inference. Involving the crew in the experiment also had the beneficial side effect that they could immediately see the effect of the proposed changes, which might increase the chances to get a permanent change in the operations of the ship and thus a permanent reduction of the ships's FC. 
+The experiment showed that it was possible to conduct a reasonably controlled experiment onboard a real ship during operation to infer the causality between the TU and FC.
+This technique can be used within ship operational data analysis, where an associative analysis obtained with ML -- as correlations or regressions --  can be accompanied with a causal analysis, so that the identified association can be used to optimize the ship's operation.
+
 
 
 
